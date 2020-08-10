@@ -9,7 +9,7 @@ click the button search it will show you the city info:
 * 5 Days forecast with the corresponding info and icon images. 
 
 
-Link: https://aldocarrillo.github.io/HW5-WorkDayScheduler/index.html
+Link: https://aldocarrillo.github.io/HM6-WeatherDashboard/index.html
 
 Main Page showing the weather
 
