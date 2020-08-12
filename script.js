@@ -61,9 +61,10 @@ function loadUVindex(uv){
 /* display all the info in the correspondind field */
 function loadInfo(name,temperature,humidity,wind){
     
-    var date = moment().format("/MM/YYYY");
+    var year = moment().format("/YYYY");
+    var month = moment().format("MM/");
     var day = moment().format("DD");
-    $("#bigdate").text("["+day+date+"]");
+    $("#bigdate").text("["+month+day+ year+"]");
     $("#city-name").text(name);
 
     temperature = KelvintoFar(temperature)
@@ -77,14 +78,15 @@ function loadInfo(name,temperature,humidity,wind){
 /* display the 5 days forecast info  */
 function loadForecast(fore1,fore2,fore3,fore4,fore5){
 
-    var date = moment().format("/MM/YYYY");
+    var year = moment().format("/YYYY");
+    var month = moment().format("MM/");
     var day = moment().format("DD");
     
-    $("#date1").text((parseInt(day)+1) +date);
-    $("#date2").text((parseInt(day)+2) +date);
-    $("#date3").text((parseInt(day)+3) +date);
-    $("#date4").text((parseInt(day)+4) +date);
-    $("#date5").text((parseInt(day)+5) +date);
+    $("#date1").text(month + (parseInt(day)+1) + year);
+    $("#date2").text(month + (parseInt(day)+2) + year);
+    $("#date3").text(month + (parseInt(day)+3) + year);
+    $("#date4").text(month + (parseInt(day)+4) + year);
+    $("#date5").text(month + (parseInt(day)+5) + year);
 
     $("#temp1").text(KelvintoFar(fore1.main.temp) +" F");
     $("#temp2").text(KelvintoFar(fore2.main.temp) +" F");
