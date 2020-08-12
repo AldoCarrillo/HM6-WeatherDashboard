@@ -41,14 +41,16 @@ function loadUVindex(uv){
 
     $("#city-uv").text(uv);
     uv = parseInt(uv);
-    
-    if (uv<=2)
+
+  
+
+    if (uv<=2.99)
         document.getElementById("city-uv").setAttribute("style","background-color: green;");
-    else if (uv>=3 && uv<=5)
+    else if (uv>=3 && uv<=5.99)
         document.getElementById("city-uv").setAttribute("style","background-color: yellow;");
-    else if (uv>=6 && uv<=7)
+    else if (uv>=6 && uv<=7.99)
         document.getElementById("city-uv").setAttribute("style","background-color: orange;");
-    else if (uv>=8 && uv<=10)
+    else if (uv>=8 && uv<=10.99)
         document.getElementById("city-uv").setAttribute("style","background-color: red;");
     else if (uv>=11)
         document.getElementById("city-uv").setAttribute("style","background-color: purple;");
@@ -78,11 +80,11 @@ function loadForecast(fore1,fore2,fore3,fore4,fore5){
     var date = moment().format("/MM/YYYY");
     var day = moment().format("DD");
     
-    $("#date1").text((day) +date);
-    $("#date2").text((parseInt(day)+1) +date);
-    $("#date3").text((parseInt(day)+2) +date);
-    $("#date4").text((parseInt(day)+3) +date);
-    $("#date5").text((parseInt(day)+4) +date);
+    $("#date1").text((parseInt(day)+1) +date);
+    $("#date2").text((parseInt(day)+2) +date);
+    $("#date3").text((parseInt(day)+3) +date);
+    $("#date4").text((parseInt(day)+4) +date);
+    $("#date5").text((parseInt(day)+5) +date);
 
     $("#temp1").text(KelvintoFar(fore1.main.temp) +" F");
     $("#temp2").text(KelvintoFar(fore2.main.temp) +" F");
@@ -186,6 +188,18 @@ $("#city-button").click(function(event){
         setImages(response.list[0].weather[0].icon,response.list[1].weather[0].icon,response.list[2].weather[0].icon,response.list[3].weather[0].icon,response.list[4].weather[0].icon);
   
        });
+
+
+
+
+       $.ajax({
+        url: "https://ws.adanta.mx/api/Customer/Account/22",
+        type: 'GET',
+        dataType: 'json',
+        success: function (Customer) {
+            console.log(Customer);
+        }
+    });
 
 
 });
